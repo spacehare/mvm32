@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dqcgb64jpcr5u"]
 
+[ext_resource type="Script" uid="uid://ddtv2e3se7eva" path="res://game/player_3d.gd" id="1_7ekjr"]
+[ext_resource type="PackedScene" uid="uid://bld2oe6yg5dmd" path="res://game/camera_rig.tscn" id="2_rlykk"]
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vm1y8"]
 radius = 0.3
 height = 1.0
@@ -8,7 +11,12 @@ height = 1.0
 radius = 0.3
 height = 1.0
 
-[node name="Player3d" type="CharacterBody3D" unique_id=966896317]
+[node name="Player3d" type="CharacterBody3D" unique_id=966896317 node_paths=PackedStringArray("avatar", "camera_rig")]
+script = ExtResource("1_7ekjr")
+avatar = NodePath("MeshInstance3D")
+camera_rig = NodePath("CameraRig")
+
+[node name="CameraRig" parent="." unique_id=1667351540 instance=ExtResource("2_rlykk")]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=522502392]
 mesh = SubResource("CapsuleMesh_vm1y8")

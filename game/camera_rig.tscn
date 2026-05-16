@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://bld2oe6yg5dmd"]
 
+[ext_resource type="Script" uid="uid://cruxelnlbsvp7" path="res://game/camera_rig.gd" id="1_3roi7"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_8dbhp"]
+
 [node name="CameraRig" type="Node3D" unique_id=1667351540]
+script = ExtResource("1_3roi7")
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=889872960]
+shape = SubResource("SphereShape3D_8dbhp")
+spring_length = 3.0
+
+[node name="Camera3D" type="Camera3D" parent="SpringArm3D" unique_id=1741511767]

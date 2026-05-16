@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name Player
 
-@export var stats: PlayerStats
+# @export var stats: PlayerStats
 @export_group('jump')
 var jumps: int = 0
 @export var jumps_max: int = 2
@@ -9,7 +9,7 @@ var jumps: int = 0
 @export_group('other nodes')
 @export var wall_ray: RayCast3D
 @export var avatar: Node3D
-@export var gimbal: SpringArm3D
+@export var camera_rig: CameraRig
 @export_group('schmovement')
 @export var h_accel := .1
 @export var h_decel := .1
@@ -26,10 +26,10 @@ func _physics_process(delta):
 	var look_vel = global_position + Vector3(velocity.x, 0, velocity.z)
 
 	# MOVING
-	var input_dir := Input.get_vector('move_left', 'move_right', 'move_forward', 'move_backward')
+	var input_dir := Input.get_vector('act_move_left', 'act_move_right', 'act_move_forward', 'act_move_backward')
 	wish_dir = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized() \
 	# move appropriately regardless of camera angle
-	.rotated(Vector3.UP, gimbal.rotation.y).normalized()
+	.rotated(Vector3.UP, camera_rig.rotation.y).normalized()
 
 
 	if wish_dir:
@@ -52,8 +52,8 @@ func _physics_process(delta):
 		velocity.y -= gravity * delta
 
 	# WALL JUMPING
-	if wall_ray.global_position != look_wish:
-		wall_ray.look_at(look_wish)
+	# if wall_ray.global_position != look_wish:
+	# 	wall_ray.look_at(look_wish)
 
 	if not is_on_floor() and Input.is_action_just_pressed('act_jump') and wall_ray.is_colliding():
 		var norm = wall_ray.get_collision_normal()

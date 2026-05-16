@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://buxslfuvgui55"]
+
+[ext_resource type="PackedScene" uid="uid://dqcgb64jpcr5u" path="res://game/player3d.tscn" id="1_4ey1n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3wkk"]
+albedo_color = Color(0.18520033, 0.2716291, 0.10475784, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_2fm4j"]
+material = SubResource("StandardMaterial3D_x3wkk")
+size = Vector2(30, 30)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4ey1n"]
+data = PackedVector3Array(15, 0, 15, -15, 0, 15, 15, 0, -15, -15, 0, 15, -15, 0, -15, 15, 0, -15)
+
+[node name="Playground" type="Node3D" unique_id=840228222]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=633175435]
+transform = Transform3D(1, 0, 0, 0, 0.676998, 0.73598486, 0, -0.73598486, 0.676998, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=767261900]
+mesh = SubResource("PlaneMesh_2fm4j")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=303762209]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2129316569]
+shape = SubResource("ConcavePolygonShape3D_4ey1n")
+
+[node name="Player3d" parent="." unique_id=966896317 instance=ExtResource("1_4ey1n")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70553017, 1.7462397, 0.6790066)
