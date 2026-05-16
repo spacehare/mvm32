@@ -1,4 +1,4 @@
-extends Node
+extends Ability
 
 @export var player: Player
 @export var jumps: int
@@ -7,6 +7,7 @@ extends Node
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
+signal jumped
 
 func _physics_process(delta):
 	printt(jumps, jumps_max)
@@ -18,5 +19,6 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed('act_jump') and jumps > 0:
 		jumps -= 1
 		player.velocity.y = jump_height
+		jumped.emit()
 	else:
 		player.velocity.y -= gravity * delta

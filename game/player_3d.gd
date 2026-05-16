@@ -7,7 +7,7 @@ var jumps: int = 0
 @export var jumps_max: int = 2
 @export var jump_height := 5.0
 @export_group('other nodes')
-@export var wall_ray: RayCast3D
+@export var ray_wall: RayCast3D
 @export var avatar: Node3D
 @export var camera_rig: CameraRig
 @export_group('schmovement')
@@ -17,6 +17,7 @@ var jumps: int = 0
 var wish_dir: Vector3
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
+signal jumped
 
 func _ready():
 	pass
@@ -45,20 +46,14 @@ func _physics_process(delta):
 
 	# TODO jump buffer
 
-	if Input.is_action_just_pressed('act_jump') and jumps > 0:
-		jumps -= 1
-		velocity.y = jump_height
-	else:
-		velocity.y -= gravity * delta
-
 	# WALL JUMPING
-	# if wall_ray.global_position != look_wish:
-	# 	wall_ray.look_at(look_wish)
+	# if ray_wall.global_position != look_wish:
+	# 	ray_wall.look_at(look_wish)
 
-	if not is_on_floor() and Input.is_action_just_pressed('act_jump') and wall_ray.is_colliding():
-		var norm = wall_ray.get_collision_normal()
-		velocity = norm.normalized() * 4
-		velocity.y = 6.0
+	# if not is_on_floor() and Input.is_action_just_pressed('act_jump') and ray_wall.is_colliding():
+	# 	var norm = ray_wall.get_collision_normal()
+	# 	velocity = norm.normalized() * 4
+	# 	velocity.y = 6.0
 
 	if global_position != look_vel:
 		avatar.look_at(look_vel)

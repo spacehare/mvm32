@@ -2,6 +2,10 @@
 
 [ext_resource type="Script" uid="uid://ddtv2e3se7eva" path="res://game/player_3d.gd" id="1_7ekjr"]
 [ext_resource type="PackedScene" uid="uid://bld2oe6yg5dmd" path="res://game/camera_rig.tscn" id="2_rlykk"]
+[ext_resource type="Script" uid="uid://0jt3uwl0cdui" path="res://game/handler_side_effects.gd" id="3_rohp8"]
+[ext_resource type="Script" uid="uid://dljoklbmetqag" path="res://game/state_machine.gd" id="4_ppouj"]
+[ext_resource type="Script" uid="uid://i5fd0e6qxur6" path="res://game/states/state_player_falling.gd" id="5_dnah5"]
+[ext_resource type="Script" uid="uid://bpqski0fmcvq7" path="res://game/states/state_player_default.gd" id="5_ppouj"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_vm1y8"]
 radius = 0.3
@@ -11,8 +15,9 @@ height = 1.0
 radius = 0.3
 height = 1.0
 
-[node name="Player3d" type="CharacterBody3D" unique_id=966896317 node_paths=PackedStringArray("avatar", "camera_rig")]
+[node name="Player3d" type="CharacterBody3D" unique_id=966896317 node_paths=PackedStringArray("ray_wall", "avatar", "camera_rig")]
 script = ExtResource("1_7ekjr")
+ray_wall = NodePath("RayWall")
 avatar = NodePath("MeshInstance3D")
 camera_rig = NodePath("CameraRig")
 
@@ -23,3 +28,24 @@ mesh = SubResource("CapsuleMesh_vm1y8")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=806504751]
 shape = SubResource("CapsuleShape3D_7ekjr")
+
+[node name="SideEffectsHandler" type="Node" parent="." unique_id=1025298693]
+script = ExtResource("3_rohp8")
+
+[node name="RayWall" type="RayCast3D" parent="." unique_id=824265403]
+target_position = Vector3(0, 0, -1)
+
+[node name="PlayerStates" type="Node" parent="." unique_id=480627896 node_paths=PackedStringArray("initial_state")]
+script = ExtResource("4_ppouj")
+initial_state = NodePath("StatePlayerDefault")
+
+[node name="StatePlayerDefault" type="Node" parent="PlayerStates" unique_id=304052906 node_paths=PackedStringArray("player", "once_falling")]
+script = ExtResource("5_ppouj")
+player = NodePath("../..")
+once_falling = NodePath("../StatePlayerFalling")
+metadata/_custom_type_script = "uid://du1eyo52of5g0"
+
+[node name="StatePlayerFalling" type="Node" parent="PlayerStates" unique_id=1684081538 node_paths=PackedStringArray("player", "once_landed")]
+script = ExtResource("5_dnah5")
+player = NodePath("../..")
+once_landed = NodePath("../StatePlayerDefault")
