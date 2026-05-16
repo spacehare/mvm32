@@ -29,11 +29,13 @@ mesh = SubResource("CapsuleMesh_vm1y8")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=806504751]
 shape = SubResource("CapsuleShape3D_7ekjr")
 
+[node name="RayWall" type="RayCast3D" parent="." unique_id=824265403]
+target_position = Vector3(0, 0, -1)
+
 [node name="SideEffectsHandler" type="Node" parent="." unique_id=1025298693]
 script = ExtResource("3_rohp8")
 
-[node name="RayWall" type="RayCast3D" parent="." unique_id=824265403]
-target_position = Vector3(0, 0, -1)
+[node name="PlayerAbilities" type="Node" parent="." unique_id=1033700900]
 
 [node name="PlayerStates" type="Node" parent="." unique_id=480627896 node_paths=PackedStringArray("initial_state")]
 script = ExtResource("4_ppouj")
