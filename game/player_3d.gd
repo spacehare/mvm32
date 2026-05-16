@@ -16,8 +16,9 @@ var jumps: int = 0
 @export var h_speed := 6.
 var wish_dir: Vector3
 
+@onready var abilities_handler: HandlerPlayerAbilities = $PlayerAbilitiesHandler
+
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
-signal jumped
 
 func _ready():
 	pass
@@ -41,8 +42,8 @@ func _physics_process(delta):
 		velocity.z = move_toward(velocity.z, 0, h_decel * abs(velocity.z * 0.5))
 
 	# JUMPING
-	if is_on_floor():
-		jumps = jumps_max
+	# if is_on_floor():
+	# 	jumps = jumps_max
 
 	# TODO jump buffer
 
@@ -59,3 +60,7 @@ func _physics_process(delta):
 		avatar.look_at(look_vel)
 
 	move_and_slide()
+
+# TODO refactor
+func add_ability(ability: Ability):
+	abilities_handler.add_ability(ability)

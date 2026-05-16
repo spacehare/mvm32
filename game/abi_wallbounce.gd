@@ -1,6 +1,5 @@
-extends Ability
+extends AbilityInstance
 
-@export var player: Player
 @export var ray: RayCast3D
 
 func _physics_process(_delta):

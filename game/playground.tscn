@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://buxslfuvgui55"]
 
 [ext_resource type="PackedScene" uid="uid://dqcgb64jpcr5u" path="res://game/player3d.tscn" id="1_4ey1n"]
+[ext_resource type="PackedScene" uid="uid://ba8c83gydwbst" path="res://game/pickup.tscn" id="2_x3wkk"]
+[ext_resource type="Resource" uid="uid://ck5pteasiavde" path="res://game/abilities/ability_jump.tres" id="3_2fm4j"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3wkk"]
 albedo_color = Color(0.18520033, 0.2716291, 0.10475784, 1)
@@ -27,3 +29,7 @@ shape = SubResource("ConcavePolygonShape3D_4ey1n")
 
 [node name="Player3d" parent="." unique_id=966896317 instance=ExtResource("1_4ey1n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70553017, 2.801436, 0.6790066)
+
+[node name="Pickup" parent="." unique_id=1752604309 instance=ExtResource("2_x3wkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8697777, 0.5066726, -0.99948263)
+ability = ExtResource("3_2fm4j")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Ability" format=3 uid="uid://ck5pteasiavde"]
+
+[ext_resource type="Script" uid="uid://d2bmqy7hnxwiv" path="res://game/ability.gd" id="1_rr4kk"]
+
+[resource]
+script = ExtResource("1_rr4kk")
+title = "Hop"
+metadata/_custom_type_script = "uid://d2bmqy7hnxwiv"

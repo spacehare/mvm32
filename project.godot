@@ -80,6 +80,12 @@ act_attack={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="entities"
+3d_physics/layer_9="pickups"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
