@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://dqcgb64jpcr5u" path="res://game/player3d.tscn" id="1_4ey1n"]
 [ext_resource type="PackedScene" uid="uid://ba8c83gydwbst" path="res://game/pickup.tscn" id="2_x3wkk"]
 [ext_resource type="Resource" uid="uid://ck5pteasiavde" path="res://game/abilities/ability_jump.tres" id="3_2fm4j"]
+[ext_resource type="Resource" uid="uid://dnx2sedtwwno6" path="res://game/side_effects/trigger_on_jump.tres" id="4_bi43c"]
+[ext_resource type="PackedScene" uid="uid://cyel4ys4q504v" path="res://game/rest_point.tscn" id="4_k6ish"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_x3wkk"]
 albedo_color = Color(0.18520033, 0.2716291, 0.10475784, 1)
@@ -33,3 +35,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.70553017, 2.801436, 0.67900
 [node name="Pickup" parent="." unique_id=1752604309 instance=ExtResource("2_x3wkk")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.8697777, 0.5066726, -0.99948263)
 ability = ExtResource("3_2fm4j")
+
+[node name="Pickup2" parent="." unique_id=2035705738 instance=ExtResource("2_x3wkk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9570322, 0.5066726, -1.9383755)
+trigger = ExtResource("4_bi43c")
+
+[node name="RestPoint" parent="." unique_id=1585083625 instance=ExtResource("4_k6ish")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.283949, 0.032742776, -0.42665744)

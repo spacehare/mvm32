@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cyel4ys4q504v"]
+
+[ext_resource type="Script" uid="uid://d2nlsir8vkn2t" path="res://game/rest_point.gd" id="1_t7vwu"]
+
+[sub_resource type="TextMesh" id="TextMesh_g4a5k"]
+text = "rest"
+curve_step = 10.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_t7vwu"]
+radius = 0.1
+height = 0.2
+radial_segments = 6
+rings = 3
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4a5k"]
+
+[node name="RestPoint" type="Node3D" unique_id=1585083625]
+script = ExtResource("1_t7vwu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=672197631]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2791804, 0)
+mesh = SubResource("TextMesh_g4a5k")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1030868309]
+mesh = SubResource("SphereMesh_t7vwu")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=2084586453]
+collision_layer = 512
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=138048595]
+shape = SubResource("SphereShape3D_g4a5k")

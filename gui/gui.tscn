@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://vpt6ae7ebow2"]
+
+[ext_resource type="Script" uid="uid://bna48ql5qnjos" path="res://gui/gui.gd" id="1_yw5qc"]
+[ext_resource type="PackedScene" uid="uid://c7l6ebnyv0vef" path="res://gui/gui_rest_point.tscn" id="2_ioifv"]
+
+[node name="GUI" type="Control" unique_id=1787725856]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yw5qc")
+
+[node name="GuiRestPoint" parent="." unique_id=1186698172 instance=ExtResource("2_ioifv")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1

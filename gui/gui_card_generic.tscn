@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://brfkk6u8xup75"]
+
+[ext_resource type="Script" uid="uid://cqw42tr2bd1rj" path="res://gui/gui_card_generic.gd" id="1_dy1qw"]
+
+[node name="GuiCardGeneric" type="PanelContainer" unique_id=987881229]
+custom_minimum_size = Vector2(64, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dy1qw")
+
+[node name="Label" type="Label" parent="." unique_id=2000251726]
+layout_mode = 2
+text = "Generic Card"
+horizontal_alignment = 1

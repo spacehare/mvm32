@@ -1,4 +1,5 @@
 extends AbilityInstance
+class_name AbilityInstanceJump
 
 @export var jumps: int
 @export var jumps_max: int = 2

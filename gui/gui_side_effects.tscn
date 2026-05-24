@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bepy8jtb8snqx"]
+
+[ext_resource type="Script" uid="uid://xo4ol65rhalr" path="res://gui/gui_side_effects.gd" id="1_qs1b4"]
+[ext_resource type="PackedScene" uid="uid://brfkk6u8xup75" path="res://gui/gui_card_generic.tscn" id="2_4d1ii"]
+
+[node name="GuiSideEffects" type="BoxContainer" unique_id=832499752]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qs1b4")
+card_scene = ExtResource("2_4d1ii")
+
+[node name="UnusedTriggers" type="PanelContainer" parent="." unique_id=1675218705]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="UnusedTriggers" unique_id=1324981706]
+layout_mode = 2
+vertical = true
+
+[node name="Label" type="Label" parent="UnusedTriggers/BoxContainer" unique_id=883079346]
+layout_mode = 2
+text = "Triggers"
+
+[node name="BoxTriggers" type="BoxContainer" parent="UnusedTriggers" unique_id=689042323]
+unique_name_in_owner = true
+layout_mode = 2
+vertical = true
+
+[node name="UsedTriggers" type="PanelContainer" parent="." unique_id=990397231]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UsedEffects" type="PanelContainer" parent="." unique_id=2054341965]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnusedEffects" type="PanelContainer" parent="." unique_id=601623081]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BoxContainer" type="BoxContainer" parent="UnusedEffects" unique_id=1134694302]
+layout_mode = 2
+vertical = true
+
+[node name="Label2" type="Label" parent="UnusedEffects/BoxContainer" unique_id=533693478]
+layout_mode = 2
+text = "Effects"
+
+[node name="BoxEffects" type="BoxContainer" parent="UnusedEffects" unique_id=1687665]
+unique_name_in_owner = true
+layout_mode = 2
+vertical = true

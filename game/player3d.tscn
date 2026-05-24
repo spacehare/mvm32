@@ -23,6 +23,8 @@ script = ExtResource("1_7ekjr")
 ray_wall = NodePath("RayWall")
 avatar = NodePath("MeshInstance3D")
 camera_rig = NodePath("CameraRig")
+h_accel = 1.0
+h_decel = 1.0
 
 [node name="CameraRig" parent="." unique_id=1667351540 instance=ExtResource("2_rlykk")]
 

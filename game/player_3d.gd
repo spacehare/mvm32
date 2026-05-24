@@ -17,6 +17,7 @@ var jumps: int = 0
 var wish_dir: Vector3
 
 @onready var abilities_handler: HandlerPlayerAbilities = $PlayerAbilitiesHandler
+@onready var side_effects_handler: HandlerSideEffects = $SideEffectsHandler
 
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
@@ -56,11 +57,7 @@ func _physics_process(delta):
 	# 	velocity = norm.normalized() * 4
 	# 	velocity.y = 6.0
 
-	if global_position != look_vel:
-		avatar.look_at(look_vel)
+	# if global_position != look_vel:
+	# 	avatar.look_at(look_vel)
 
 	move_and_slide()
-
-# TODO refactor
-func add_ability(ability: Ability):
-	abilities_handler.add_ability(ability)

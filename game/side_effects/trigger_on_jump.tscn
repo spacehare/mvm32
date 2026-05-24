@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bk3h2p5ow220y"]
+
+[ext_resource type="Script" uid="uid://bguben46pdr2o" path="res://game/side_effects/trigger_on_jump.gd" id="1_o10t3"]
+
+[node name="TriggerOnJump" type="Node" unique_id=1394617468]
+script = ExtResource("1_o10t3")
+metadata/_custom_type_script = "uid://bguben46pdr2o"

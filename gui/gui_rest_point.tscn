@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c7l6ebnyv0vef"]
+
+[ext_resource type="Script" uid="uid://bogbrqptpxj3e" path="res://gui/gui_rest_point.gd" id="1_inet2"]
+[ext_resource type="PackedScene" uid="uid://bepy8jtb8snqx" path="res://gui/gui_side_effects.tscn" id="2_gs510"]
+
+[node name="GuiRestPoint" type="MarginContainer" unique_id=1186698172]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_inet2")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=911555485]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="." unique_id=707477322]
+layout_mode = 2
+text = "REST POINT"
+
+[node name="GuiSideEffects" parent="." unique_id=832499752 instance=ExtResource("2_gs510")]
+layout_mode = 2
